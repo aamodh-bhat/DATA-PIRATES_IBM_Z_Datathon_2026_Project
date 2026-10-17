@@ -16,9 +16,10 @@ SkyMesh replaces high-cost countermeasures with a defensive swarm of low-cost, d
 1. Estimate the 3D trajectory $\vec{r}_{\text{threat}}(t) = [x(t), y(t), z(t)]^T$ of an incoming ballistic or propelled threat from discrete early-stage telemetry inputs.
 2. Select the optimal node $i \in \{1, \dots, N\}$ from a spatially structured mesh of idle defensive drones positioned at coordinates $\vec{p}_i = [x_i, y_i, z_i]^T$.
 3. Compute an intercept point $\vec{r}_{\text{intercept}}$ and time $t_{\text{intercept}}$ satisfying:
-   $$\|\vec{p}_i + \vec{v}_i \cdot t_{\text{intercept}} - \vec{r}_{\text{threat}}(t_{\text{intercept}})\| \le \epsilon$$
-   where $\epsilon$ is the lethal engagement tolerance (empirically validated at $\approx 1.84\text{ m}$) while ensuring the interception altitude and coordinates fall outside densely populated civilian sectors.
 
+$$\|\vec{p}_i + \vec{v}_i \cdot t_{\text{intercept}} - \vec{r}_{\text{threat}}(t_{\text{intercept}})\| \le \epsilon$$
+
+where $\epsilon$ is the lethal engagement tolerance (empirically validated at $\approx 1.84\text{ m}$) while ensuring the interception altitude and coordinates fall outside densely populated civilian sectors.
 ---
 
 ## 2. Airspace Geometry: Face-Centered Cubic (FCC) Mesh
@@ -73,7 +74,7 @@ SkyMesh requires guaranteed zero-downtime availability and hardware-level isolat
 * **Cost Efficiency:** Offloads multimillion-dollar missile defense expenditures onto scalable, disposable commercial-grade drone swarms managed by high-assurance centralized AI.
 
 
-'''mermaid
+```mermaid
 graph TD
     subgraph Data Input
         A[Radar/Telemetry Sensors] -->|Real-time XYZ & Velocity| B(Threat Detection)
@@ -92,4 +93,4 @@ graph TD
         G -->|Activation Signal| H[Drone Node in FCC Lattice]
         H -->|Deploy to 3D Coordinate| I((Neutralize Threat))
     end
-'''
+
