@@ -71,3 +71,24 @@ SkyMesh requires guaranteed zero-downtime availability and hardware-level isolat
 * **Inference Accuracy:** Target trajectory prediction achieves an intercept error margin of **1.84 meters**, well within the lethal neutralizing radius of low-cost drone kinetic countermeasures.
 * **Civilian Risk Reduction:** Intercept vectors prioritize high-altitude neutralization before threats reach low-altitude urban zones, minimizing ground collateral damage and falling debris over civilian centers.
 * **Cost Efficiency:** Offloads multimillion-dollar missile defense expenditures onto scalable, disposable commercial-grade drone swarms managed by high-assurance centralized AI.
+
+
+
+graph TD
+    subgraph Data Input
+        A[Radar/Telemetry Sensors] -->|Real-time XYZ & Velocity| B(Threat Detection)
+    end
+
+    subgraph IBM LinuxONE s390x
+        C{Secure Hardware Enclave}
+        B -->|Encrypted Data Stream| C
+        C --> D[Decrypt AI Models in RAM]
+        D --> E[Scikit-Learn MLPRegressor]
+        E -->|Predict Trajectory| F[FCC Swarm Orchestration]
+        F -->|Select Optimal Node| G[Calculate Intercept Coordinate]
+    end
+
+    subgraph Physical Defense Grid
+        G -->|Activation Signal| H[Drone Node in FCC Lattice]
+        H -->|Deploy to 3D Coordinate| I((Neutralize Threat))
+    end
