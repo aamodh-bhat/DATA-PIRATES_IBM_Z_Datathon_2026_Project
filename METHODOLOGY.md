@@ -73,7 +73,7 @@ SkyMesh requires guaranteed zero-downtime availability and hardware-level isolat
 * **Cost Efficiency:** Offloads multimillion-dollar missile defense expenditures onto scalable, disposable commercial-grade drone swarms managed by high-assurance centralized AI.
 
 
-
+'''mermaid
 graph TD
     subgraph Data Input
         A[Radar/Telemetry Sensors] -->|Real-time XYZ & Velocity| B(Threat Detection)
@@ -92,3 +92,4 @@ graph TD
         G -->|Activation Signal| H[Drone Node in FCC Lattice]
         H -->|Deploy to 3D Coordinate| I((Neutralize Threat))
     end
+'''
